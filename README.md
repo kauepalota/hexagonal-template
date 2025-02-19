@@ -26,8 +26,7 @@ Este repositório é um template demonstrando como estruturar um projeto Java us
 │   │   ├── MessageHistory.java
 │   │   ├── campaign
 │   │   │   ├── Campaign.java
-│   │   │   └── conditions
-│   │   │       └── CampaignCondition.java
+│   │   │   └── CampaignCondition.java
 │   │   └── event
 │   │       ├── MessageEvent.java
 │   │       └── MessageEventProperty.java
