@@ -16,14 +16,10 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class SqsMessageListenerAdapter {
     private final EventHandlerPort handler;
-
-    private final ObjectMapper mapper;
-
+    
     @SqsListener
-    public void onMessage(String message) {
-        EventDto input = mapper.convertValue(message, EventDto.class);
-
-        handler.handle(toDomain(input));
+    public void onMessage(EventDto dto) {
+        handler.handle(toDomain(dto));
     }
 
     private MessageEvent toDomain(EventDto dto) {
