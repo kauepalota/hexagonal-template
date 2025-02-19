@@ -17,7 +17,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CampaignProcessingUsecase implements EventHandlerPort {
+public class CampaignProcessingUseCase implements EventHandlerPort {
     private final HistoryRepositoryPort historyRepo;
 
     private final CampaignProviderPort campaignProvider;

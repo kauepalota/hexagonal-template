@@ -6,47 +6,46 @@ Este repositório é um template demonstrando como estruturar um projeto Java us
 
 ```bash
 .
-└── me
-    └── kauepalota
-        └── hexagonaltemplate
-            ├── HexagonalTemplateApplication.java
-            ├── application
-            │   ├── services
-            │   │   └── CampaignEvaluationService.java
-            │   └── usecase
-            │       └── CampaignProcessingUsecase.java
-            ├── domain
-            │   ├── enums
-            │   │   └── MessageDestinationType.java
-            │   ├── model
-            │   │   ├── MessageHistory.java
-            │   │   ├── campaign
-            │   │   │   ├── Campaign.java
-            │   │   │   └── conditions
-            │   │   │       └── CampaignCondition.java
-            │   │   └── event
-            │   │       ├── MessageEvent.java
-            │   │       └── MessageEventProperty.java
-            │   ├── ports
-            │   │   ├── in
-            │   │   │   └── EventHandlerPort.java
-            │   │   └── out
-            │   │       ├── CampaignProviderPort.java
-            │   │       ├── CampaignPublishPort.java
-            │   │       └── HistoryRepositoryPort.java
-            │   └── services
-            └── infrastructure
-                ├── adapters
-                │   ├── in
-                │   │   └── SqsMessageListenerAdapter.java
-                │   └── out
-                │       ├── DynamoDbHistoryAdapter.java
-                │       ├── HttpCampaignAdapter.java
-                │       └── SqsCampaignPublishAdapter.java
-                ├── config
-                │   └── AwsConfig.java
-                └── dto
-                    └── SqsInputDto.java
+├── HexagonalTemplateApplication.java
+├── application
+│   ├── adapters
+│   │   └── in
+│   │       └── SqsMessageListenerAdapter.java
+│   ├── dto
+│   │   └── sqs
+│   │       ├── EventDto.java
+│   │       └── EventPropertyDto.java
+│   ├── services
+│   │   └── CampaignEvaluationService.java
+│   └── usecase
+│       └── CampaignProcessingUseCase.java
+├── domain
+│   ├── enums
+│   │   └── MessageDestinationType.java
+│   ├── model
+│   │   ├── MessageHistory.java
+│   │   ├── campaign
+│   │   │   ├── Campaign.java
+│   │   │   └── conditions
+│   │   │       └── CampaignCondition.java
+│   │   └── event
+│   │       ├── MessageEvent.java
+│   │       └── MessageEventProperty.java
+│   └── ports
+│       ├── in
+│       │   └── EventHandlerPort.java
+│       └── out
+│           ├── CampaignProviderPort.java
+│           ├── CampaignPublishPort.java
+│           └── HistoryRepositoryPort.java
+└── infrastructure
+    ├── adapters
+    │   └── out
+    │       ├── DynamoDbHistoryAdapter.java
+    │       ├── HttpCampaignAdapter.java
+    │       └── SqsCampaignPublishAdapter.java
+    ├── config
+    │   └── AwsConfig.java
 ```
 
 - **domain**  
