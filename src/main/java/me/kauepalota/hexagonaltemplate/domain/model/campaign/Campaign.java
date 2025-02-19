@@ -1,7 +1,5 @@
 package me.kauepalota.hexagonaltemplate.domain.model.campaign;
 
-import me.kauepalota.hexagonaltemplate.domain.model.campaign.conditions.CampaignCondition;
-
 import java.util.Set;
 import java.util.UUID;
 

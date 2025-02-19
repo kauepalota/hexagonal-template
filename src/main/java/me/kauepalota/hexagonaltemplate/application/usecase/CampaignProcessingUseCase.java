@@ -5,7 +5,7 @@ import me.kauepalota.hexagonaltemplate.application.services.CampaignEvaluationSe
 import me.kauepalota.hexagonaltemplate.domain.model.event.MessageEvent;
 import me.kauepalota.hexagonaltemplate.domain.model.MessageHistory;
 import me.kauepalota.hexagonaltemplate.domain.model.campaign.Campaign;
-import me.kauepalota.hexagonaltemplate.domain.model.campaign.conditions.CampaignCondition;
+import me.kauepalota.hexagonaltemplate.domain.model.campaign.CampaignCondition;
 import me.kauepalota.hexagonaltemplate.domain.ports.out.CampaignProviderPort;
 import me.kauepalota.hexagonaltemplate.domain.ports.in.EventHandlerPort;
 import me.kauepalota.hexagonaltemplate.domain.ports.out.HistoryRepositoryPort;

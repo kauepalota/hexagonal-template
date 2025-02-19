@@ -1,6 +1,6 @@
 package me.kauepalota.hexagonaltemplate.application.services;
 
-import me.kauepalota.hexagonaltemplate.domain.model.campaign.conditions.CampaignCondition;
+import me.kauepalota.hexagonaltemplate.domain.model.campaign.CampaignCondition;
 import org.springframework.stereotype.Service;
 
 @Service
