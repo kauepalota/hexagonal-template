@@ -4,6 +4,51 @@ Este repositório é um template demonstrando como estruturar um projeto Java us
 
 ## Estrutura de Pastas
 
+```bash
+.
+└── me
+    └── kauepalota
+        └── hexagonaltemplate
+            ├── HexagonalTemplateApplication.java
+            ├── application
+            │   ├── services
+            │   │   └── CampaignEvaluationService.java
+            │   └── usecase
+            │       └── CampaignProcessingUsecase.java
+            ├── domain
+            │   ├── enums
+            │   │   └── MessageDestinationType.java
+            │   ├── model
+            │   │   ├── MessageHistory.java
+            │   │   ├── campaign
+            │   │   │   ├── Campaign.java
+            │   │   │   └── conditions
+            │   │   │       └── CampaignCondition.java
+            │   │   └── event
+            │   │       ├── MessageEvent.java
+            │   │       └── MessageEventProperty.java
+            │   ├── ports
+            │   │   ├── in
+            │   │   │   └── EventHandlerPort.java
+            │   │   └── out
+            │   │       ├── CampaignProviderPort.java
+            │   │       ├── CampaignPublishPort.java
+            │   │       └── HistoryRepositoryPort.java
+            │   └── services
+            └── infrastructure
+                ├── adapters
+                │   ├── in
+                │   │   └── SqsMessageListenerAdapter.java
+                │   └── out
+                │       ├── DynamoDbHistoryAdapter.java
+                │       ├── HttpCampaignAdapter.java
+                │       └── SqsCampaignPublishAdapter.java
+                ├── config
+                │   └── AwsConfig.java
+                └── dto
+                    └── SqsInputDto.java
+```
+
 - **domain**  
   Contém as entidades do domínio e suas regras (ex.: modelos, enums, portas de entrada/saída).  
 - **application**  
