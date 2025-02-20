@@ -1,5 +1,7 @@
 package me.kauepalota.hexagonaltemplate.domain.model.campaign;
 
+import me.kauepalota.hexagonaltemplate.domain.model.event.MessageEvent;
+
 import java.util.Set;
 import java.util.UUID;
 
@@ -14,4 +16,11 @@ public record Campaign(
     Set<CampaignCondition> conditions
 
     // Another fields...
-) {}
+) {
+    public boolean isMeetingConditions(MessageEvent event) {
+        return conditions.stream()
+            .allMatch(condition -> condition.evaluate(
+                event.getPropertyValue(condition.fieldName())
+            ));
+    }
+}
