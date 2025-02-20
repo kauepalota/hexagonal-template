@@ -15,8 +15,6 @@ Este repositório é um template demonstrando como estruturar um projeto Java us
 │   │   └── sqs
 │   │       ├── EventDto.java
 │   │       └── EventPropertyDto.java
-│   ├── services
-│   │   └── CampaignEvaluationService.java
 │   └── usecase
 │       └── CampaignProcessingUseCase.java
 ├── domain
@@ -43,8 +41,9 @@ Este repositório é um template demonstrando como estruturar um projeto Java us
     │       ├── DynamoDbHistoryAdapter.java
     │       ├── HttpCampaignAdapter.java
     │       └── SqsCampaignPublishAdapter.java
-    ├── config
-    │   └── AwsConfig.java
+    └── config
+        └── AwsConfig.java
+
 ```
 
 - **domain**  
