@@ -1,5 +1,6 @@
 package me.kauepalota.hexagonaltemplate.domain.model.campaign;
 
+import lombok.Builder;
 import me.kauepalota.hexagonaltemplate.domain.model.event.MessageEvent;
 
 import java.util.Set;
@@ -9,6 +10,7 @@ import java.util.UUID;
  * Should probably come from a library (containing domain layer)
  * across the two pieces.
  */
+@Builder
 public record Campaign(
     UUID id,
     String name,
