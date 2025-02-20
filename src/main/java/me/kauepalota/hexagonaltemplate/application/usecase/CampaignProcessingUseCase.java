@@ -1,15 +1,14 @@
 package me.kauepalota.hexagonaltemplate.application.usecase;
 
 import lombok.RequiredArgsConstructor;
-import me.kauepalota.hexagonaltemplate.application.services.CampaignEvaluationService;
-import me.kauepalota.hexagonaltemplate.domain.model.event.MessageEvent;
 import me.kauepalota.hexagonaltemplate.domain.model.MessageHistory;
 import me.kauepalota.hexagonaltemplate.domain.model.campaign.Campaign;
 import me.kauepalota.hexagonaltemplate.domain.model.campaign.CampaignCondition;
-import me.kauepalota.hexagonaltemplate.domain.ports.out.CampaignProviderPort;
+import me.kauepalota.hexagonaltemplate.domain.model.event.MessageEvent;
 import me.kauepalota.hexagonaltemplate.domain.ports.in.EventHandlerPort;
-import me.kauepalota.hexagonaltemplate.domain.ports.out.HistoryRepositoryPort;
+import me.kauepalota.hexagonaltemplate.domain.ports.out.CampaignProviderPort;
 import me.kauepalota.hexagonaltemplate.domain.ports.out.CampaignPublishPort;
+import me.kauepalota.hexagonaltemplate.domain.ports.out.HistoryRepositoryPort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -23,8 +22,6 @@ public class CampaignProcessingUseCase implements EventHandlerPort {
     private final CampaignProviderPort campaignProvider;
 
     private final CampaignPublishPort publisher;
-
-    private final CampaignEvaluationService evaluationService;
 
     @Override
     public void handle(MessageEvent event) {
@@ -56,7 +53,7 @@ public class CampaignProcessingUseCase implements EventHandlerPort {
             boolean isMeeting = event.properties().stream()
                 .filter(property -> property.fieldName().equals(condition.fieldName()))
                 .findFirst()
-                .map(property -> evaluationService.evaluateConditions(condition, property.value()))
+                .map(property -> condition.evaluate(property.value()))
                 .orElse(false);
 
             if (!isMeeting) {
