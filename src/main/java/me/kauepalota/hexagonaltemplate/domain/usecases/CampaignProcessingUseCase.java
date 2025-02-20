@@ -1,4 +1,4 @@
-package me.kauepalota.hexagonaltemplate.application.usecase;
+package me.kauepalota.hexagonaltemplate.domain.usecases;
 
 import lombok.RequiredArgsConstructor;
 import me.kauepalota.hexagonaltemplate.domain.model.MessageHistory;
