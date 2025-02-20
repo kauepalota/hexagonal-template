@@ -12,6 +12,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
+/**
+ * Adapter for processing SQS messages.
+ * Receives DTO messages from the SQS queue and converts them to the domain model.
+ */
 @Component
 @RequiredArgsConstructor
 public class SqsMessageListenerAdapter {

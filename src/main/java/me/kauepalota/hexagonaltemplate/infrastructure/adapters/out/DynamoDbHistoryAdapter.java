@@ -3,7 +3,6 @@ package me.kauepalota.hexagonaltemplate.infrastructure.adapters.out;
 import me.kauepalota.hexagonaltemplate.domain.model.MessageHistory;
 import me.kauepalota.hexagonaltemplate.domain.ports.out.HistoryRepositoryPort;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
