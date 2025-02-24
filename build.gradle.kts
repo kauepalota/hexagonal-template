@@ -24,8 +24,10 @@ repositories {
 }
 
 dependencies {
+    implementation(platform("com.amazonaws:aws-java-sdk-bom:1.12.782"))
     implementation(platform("io.awspring.cloud:spring-cloud-aws-dependencies:3.2.0"))
 
+    implementation("com.amazonaws:aws-java-sdk-dynamodb")
     implementation("io.awspring.cloud:spring-cloud-aws-starter-sqs")
     implementation("org.springframework.boot:spring-boot-starter-web")
     compileOnly("org.projectlombok:lombok")
