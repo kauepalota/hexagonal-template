@@ -1,31 +1,37 @@
 package me.kauepalota.hexagonaltemplate.infrastructure.adapters.out;
 
-import lombok.RequiredArgsConstructor;
+import me.kauepalota.hexagonaltemplate.domain.enums.NotificationType;
 import me.kauepalota.hexagonaltemplate.domain.model.Notification;
 import me.kauepalota.hexagonaltemplate.domain.ports.out.NotificationSendPort;
+import me.kauepalota.hexagonaltemplate.infrastructure.notification.strategies.NotificationStrategy;
 import me.kauepalota.hexagonaltemplate.infrastructure.notification.strategies.PushNotificationStrategy;
 import me.kauepalota.hexagonaltemplate.infrastructure.notification.strategies.WhatsappNotificationStrategy;
 import org.springframework.stereotype.Component;
 
-@Component
-@RequiredArgsConstructor
-public class NotificationSendAdapter implements NotificationSendPort {
-    private final WhatsappNotificationStrategy whatsappStrategy;
+import java.util.Map;
 
-    private final PushNotificationStrategy pushStrategy;
+@Component
+public class NotificationSendAdapter implements NotificationSendPort {
+    private final Map<NotificationType, NotificationStrategy> strategies;
+
+    public NotificationSendAdapter(
+        WhatsappNotificationStrategy whatsappStrategy,
+        PushNotificationStrategy pushStrategy
+    ) {
+        this.strategies = Map.of(
+            NotificationType.WHATSAPP, whatsappStrategy,
+            NotificationType.PUSH, pushStrategy
+        );
+    }
+
 
     @Override
     public void sendNotification(Notification notification) {
-        switch (notification.type()) {
-            case WHATSAPP:
-                whatsappStrategy.send(notification);
-                break;
-            case PUSH:
-                pushStrategy.send(notification);
-                break;
-            case EMAIL:
-                System.out.println("TODO: Implement email notification");
-                break;
+        NotificationStrategy strategy = strategies.get(notification.type());
+        if (strategy == null) {
+            throw new UnsupportedOperationException("Unsupported notification type: " + notification.type());
         }
+
+        strategy.send(notification);
     }
 }
